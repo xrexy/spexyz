@@ -1,14 +1,27 @@
 {
+  "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**"]
+      "outputs": [
+        "dist/**",
+        ".next/**",
+        ".nuxt/**",
+        ".svelte-kit/**",
+        ".build/**"
+      ]
+    },
+    "test": {
+      "dependsOn": ["build"],
+      "outputs": [],
+      "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "tests/**/*.ts"]
     },
     "lint": {
       "outputs": []
     },
-    "dev": {
-      "cache": false
+    "deploy": {
+      "dependsOn": ["build", "test", "lint"],
+      "outputs": []
     }
   }
 }
