@@ -1,0 +1,1 @@
+<h1>speXYZ starter (Svelte)</h1>
