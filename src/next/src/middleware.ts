@@ -22,7 +22,6 @@ export async function middleware(req: NextRequest) {
     }
 
     const data = await redirectFetch.json();
-
     return NextResponse.redirect(data?.url);
   }
 }
