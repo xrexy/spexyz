@@ -26,16 +26,15 @@
   },
   "devDependencies": {
     "@types/node": "18.0.0",
-    "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",
     "autoprefixer": "^10.4.7",
     "eslint": "8.18.0",
     "eslint-config-next": "12.2.1",
     "postcss": "^8.4.14",
     "prisma": "^4.1.0",
+    "prisma-config": "*",
     "tailwindcss": "^3.1.6",
     "tsconfig": "*",
-    "prisma-config": "*",
     "typescript": "4.7.4"
   },
   "prisma": {

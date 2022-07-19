@@ -23,7 +23,7 @@ if (!_env.success) {
     "❌ Invalid environment variables:\n",
     ...formatErrors(_env.error.format()),
   );
-  process.exit(1);
+  process.exit?.(1);
 }
 
 export const env = _env.data;
