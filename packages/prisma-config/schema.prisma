@@ -71,8 +71,8 @@ model Note {
 
 model Redirect {
     id   String @id @default(cuid())
-    url  String
-    slug String
+    url  String 
+    slug String @unique
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt

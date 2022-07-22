@@ -1,15 +1,20 @@
-import * as z from "zod";
+import React, {
+  DetailedHTMLProps,
+  FormEvent,
+  InputHTMLAttributes,
+} from "react";
 
-const slugSchema = z.string().max(32).min(2);
-const urlSchema = z.string().url().max(64).min(8);
-
-const XYZInput: React.FC<{
+type InputProps = {
   leftSection?: {
     placeholder: string;
   };
-}> = ({ leftSection }) => {
+} & React.HTMLProps<HTMLInputElement>;
+
+const XYZInput: React.FC<InputProps> = (props) => {
+  const { leftSection, ...rest } = props;
+
   return (
-    <form className="w-full md:w-1/3">
+    <div className="w-full lg:w-1/4">
       <div className="relative flex w-full flex-wrap items-stretch">
         {leftSection?.placeholder && (
           <div className="-mr-px flex">
@@ -26,12 +31,10 @@ const XYZInput: React.FC<{
           }`}
           maxLength={leftSection?.placeholder ? 32 : 64}
           minLength={leftSection?.placeholder ? 2 : 8}
+          {...rest}
         />
       </div>
-      <p className="pl-4 text-xs italic text-red-500">
-        Please fill out this field.
-      </p>
-    </form>
+    </div>
   );
 };
 
